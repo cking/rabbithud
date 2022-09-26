@@ -1,0 +1,53 @@
+{
+  "name": "rabbithud",
+  "version": "1.0.0",
+  "description": "Rabbit HUD is an overlay system to display transparent browser windows on top",
+  "private": true,
+  "scripts": {
+    "postinstall": "cross-env ELECTRON_RUN_AS_NODE=1 electron scripts/update-electron-vendors.mjs && electron-builder install-app-deps",
+    "build": "npm run build:main && npm run build:preload && npm run build:renderer",
+    "build:main": "cd ./packages/main && vite build",
+    "build:preload": "cd ./packages/preload && vite build",
+    "build:renderer": "cd ./packages/renderer && vite build",
+    "compile": "cross-env MODE=production npm run build && electron-builder build --config .electron-builder.config.js --dir --config.asar=false",
+    "start": "npm run watch",
+    "watch": "node scripts/watch.mjs"
+  },
+  "author": "Kura Bloodlust <me@kurabloodlust.eu>",
+  "license": "EUPL-1.2",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^20.2.0",
+    "electron-builder": "^23.3.3",
+    "unplugin-auto-expose": "^0.0.3",
+    "vite": "^3.1.3"
+  },
+  "main": "packages/main/dist/index.cjs",
+  "build": {
+    "appId": "eu.kurabloodlust.rabbithud",
+    "productName": "Rabbit HUD",
+    "directories": {
+      "buildResources": "resources"
+    },
+    "files": [
+      "build/**/*",
+      "LICENSE"
+    ],
+    "extraFiles": [],
+    "win": {
+      "target": [
+        "nsis",
+        "msi"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "rpm",
+        "snap",
+        "AppImage"
+      ],
+      "category": "Network"
+    }
+  }
+}
