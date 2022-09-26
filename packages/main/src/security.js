@@ -22,7 +22,7 @@ type Permissions =
  *
  * In development mode you need allow open `VITE_DEV_SERVER_URL`.
  */
-const ALLOWED_ORIGINS_AND_PERMISSIONS = new Map();
+const ALLOWED_ORIGINS_AND_PERMISSIONS = new Map()
 if (import.meta.env.DEV && import.meta.env.VITE_DEV_SERVER_URL) {
   ALLOWED_ORIGINS_AND_PERMISSIONS.set(new URL(import.meta.env.VITE_DEV_SERVER_URL).origin, new Set())
 }
@@ -134,11 +134,11 @@ app.on('web-contents-created', (_, contents) => {
 })
 
 app.whenReady().then(() => {
-  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-    callback({
+  session.defaultSession.webRequest.onHeadersReceived((details, handle) => {
+    handle({
       responseHeaders: {
-        'Content-Security-Policy': ['script-src \'self\''],
-        ...details.responseHeaders,
+        'Content-Security-Policy': ['script-src \'self\' blob:'],
+        ...details.responseHeaders
       }
     })
   })
@@ -146,7 +146,7 @@ app.whenReady().then(() => {
 
 // TODO: https wrapper with custom self signed cert lel
 
-app.on('certificate-error', (event, _, url, _, certificate, trust) => {
+app.on('certificate-error', (event, _webContents, url, _error, certificate, trust) => {
   const { origin } = new URL(url)
   if (origin === 'https://localhost:PORT') {
     // Verification logic.

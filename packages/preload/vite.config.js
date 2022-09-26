@@ -20,17 +20,17 @@ const config = {
     minify: process.env.MODE !== 'development',
     lib: {
       entry: 'src/index.js',
-      formats: ['cjs'],
+      formats: ['cjs']
     },
     rollupOptions: {
       output: {
-        entryFileNames: '[name].cjs',
-      },
+        entryFileNames: '[name].cjs'
+      }
     },
     emptyOutDir: true,
-    reportCompressedSize: false,
+    reportCompressedSize: false
   },
-  plugins: [preload.vite()],
+  plugins: [preload.vite()]
 }
 
 export default config
