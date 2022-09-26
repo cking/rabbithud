@@ -25,11 +25,7 @@
     <a href="https://github.com/cking/rabbithud">View Demo</a>
     ·
     -->
-    <a href="https://github.com/cking/rabbithud/issues">Report Bug</a>
-    <!--
-    ·
-    <a href="https://github.com/cking/rabbithud/issues">Request Feature</a>
-    -->
+    <a href="https://github.com/cking/rabbithud/issues/new/choose">Report Bug or request Feature</a>
   </p>
 </div>
 
