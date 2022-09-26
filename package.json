@@ -57,6 +57,7 @@
     }
   },
   "dependencies": {
+    "@picocss/pico": "^1.5.5",
     "hotkeys-js": "^3.10.0"
   }
 }
