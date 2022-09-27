@@ -26,7 +26,7 @@ async function createWindow () {
     icon: join(app.getAppPath(), 'packages', 'main', 'assets', 'kurousagi.png'),
     show: false,
     frame: true, // false for overlay by default
-    backgroundColor: '#000000', // "#00000000" for transparent
+    backgroundColor: '#ffffff', // "#ffffff00" for transparent
     hasShadow: false,
     darkTheme: true,
     transparent: false, // true for overlay

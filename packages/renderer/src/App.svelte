@@ -1,6 +1,5 @@
 <script>
-    import "@picocss/pico"
-
+    import { Alert } from 'flowbite-svelte';
     import { hotkeys } from "svelte-hotkeys";
     import Counter from "./components/Counter.svelte";
 
@@ -19,7 +18,11 @@
 
 <main>
     <h1>Hello Electron!</h1>
-
+	
+    <Alert>
+		<span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
+	</Alert>
+    
     <Counter />
 
     <p>
