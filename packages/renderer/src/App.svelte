@@ -1,27 +1,40 @@
 <script>
-    import { Alert } from 'flowbite-svelte';
+    import { PlusCircle, Cog, Folder, FolderOpen, TableCells } from 'svelte-heros-v2'
     import { hotkeys } from "svelte-hotkeys";
     import Counter from "./components/Counter.svelte";
+
+    import Sidebar from './components/Sidebar.svelte';
 
     function toggleDevTools(ev) {
         window.rabbit.devtools()
     }
 </script>
 
+<style>
+    :global(body) {
+        display: flex;
+        gap: 2rem;
+    }
+
+    aside {
+        flex: 1;
+    }
+
+    main {
+        flex: 4;
+    }
+</style>
+
 <svelte:window use:hotkeys={{ keys: 'ctrl+shift+i', handler: toggleDevTools }} />
 <svelte:head>
     <title>Rabbit HUD</title>
-    <!-- todo: pico css :3 -->
-    <!-- todo icon -->
-    <!--link rel="icon" href="" type="image/png"-->
+    <link rel="shortcut icon" href="../assets/kurousagi.png" type="image/png">
 </svelte:head>
+
+<Sidebar />
 
 <main>
     <h1>Hello Electron!</h1>
-	
-    <Alert>
-		<span class="font-medium">Info alert!</span> Change a few things up and try submitting again.
-	</Alert>
     
     <Counter />
 

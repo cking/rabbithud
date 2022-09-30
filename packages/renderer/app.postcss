@@ -1,10 +1,24 @@
-/* Write your global styles here, in PostCSS syntax */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-1: hsl(268 53.0% 22.5%);
+  --color-2: hsl(262 37.6% 33.3%);
+  --color-3: hsl(255 29.6% 41.8%);
+  --color-4: hsl(265 30.7% 49.8%);
+  --color-5: hsl(265 30.7% 66.0%);
+  --color-6: hsl(265 30.7% 79.0%);
+}
 
 html {
   padding: 1em;
   line-height: 1.75;
   font-size: 1.25em;
+  outline: none !important;
+}
+
+body {
+  background-color: var(--color-1);
+  color: var(--color-5);
 }
