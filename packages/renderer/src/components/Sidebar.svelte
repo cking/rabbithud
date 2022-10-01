@@ -1,20 +1,42 @@
 <script>
     import { FolderPlus, PlusCircle, Cog, Folder, FolderOpen, TableCells } from 'svelte-heros-v2'
+    import DropdownButton from './DropdownButton.svelte';
 </script>
 
 <style>
-    button:hover {
-        color: var(--color-6);
-    }
-
     summary::marker {
         content: "";
     }
+
+    ul.menu {
+        display: flex;
+        flex-direction: column;
+
+        background-color: var(--color-4);
+        border-radius: 5px;
+        border: 1px solid var(--color-5);
+        color: var(--color-6);
+        font-size: 0.8em;
+    }
+
+    .menu li {
+        border-bottom: 1px solid var(--color-5);
+        padding: 0.1ch 0.5ch;
+    }
+
+    .menu li:last-child {
+        border-bottom: none;
+    }
 </style>
 
-<button class="float-right" title="Add Overlay">
+<DropdownButton>
     <PlusCircle />
-</button>
+    
+    <ul slot="menu" class="menu">
+        <li>Item Lol</li>
+        <li>Item Lol</li>
+    </ul>
+</DropdownButton>
 
 <h2 class="text-sm font-bold">
     Overlays
