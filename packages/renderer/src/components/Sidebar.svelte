@@ -1,6 +1,14 @@
 <script>
     import { FolderPlus, PlusCircle, Cog, Folder, FolderOpen, TableCells } from 'svelte-heros-v2'
     import DropdownButton from './DropdownButton.svelte';
+
+    function onNewOverlay(ev) {
+        console.log(ev)
+    }
+
+    function onNewGroup(ev) {
+        console.log(ev)
+    }
 </script>
 
 <style>
@@ -22,10 +30,15 @@
     .menu li {
         border-bottom: 1px solid var(--color-5);
         padding: 0.1ch 0.5ch;
+        cursor: pointer;
     }
 
     .menu li:last-child {
         border-bottom: none;
+    }
+
+    .menu li:hover {
+        background-color: #0004;
     }
 </style>
 
@@ -33,8 +46,8 @@
     <PlusCircle />
     
     <ul slot="menu" class="menu">
-        <li>Item Lol</li>
-        <li>Item Lol</li>
+        <li on:click="{onNewOverlay}">New Overlay</li>
+        <li on:click="{onNewGroup}">New Group</li>
     </ul>
 </DropdownButton>
 
