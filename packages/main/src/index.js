@@ -1,7 +1,7 @@
 import { app } from 'electron'
 import './security'
 import { createTray } from './tray'
-import { restoreOrCreateWindow } from '@/preferencesWindow'
+import { restoreOrCreateWindow, createWindow } from '@/preferencesWindow'
 
 /**
  * Prevent electron from running multiple instances.
@@ -25,6 +25,7 @@ app.disableHardwareAcceleration()
 app
   .whenReady()
   .then(createTray)
+  .then(createWindow)
   .catch(e => console.error('Failed create window:', e))
 
 /**

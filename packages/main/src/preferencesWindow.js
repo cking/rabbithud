@@ -4,6 +4,11 @@ import { URL } from 'url'
 
 let windowId = -1
 
+let quitting = false
+app.on('before-quit', () => {
+  quitting = true
+})
+
 ipcMain.on('toggle-devtools', (event) => {
   const wc = event.sender
 
@@ -12,7 +17,7 @@ ipcMain.on('toggle-devtools', (event) => {
   }
 })
 
-async function createWindow () {
+async function doCreateWindow () {
   const browserWindow = new BrowserWindow({
     minWidth: 1280,
     minHeight: 550,
@@ -44,17 +49,12 @@ async function createWindow () {
     }
   })
 
-  /**
-     * If the 'show' property of the BrowserWindow's constructor is omitted from the initialization options,
-     * it then defaults to 'true'. This can cause flickering as the window loads the html content,
-     * and it also has show problematic behaviour with the closing of the window.
-     * Use `show: false` and listen to the  `ready-to-show` event to show the window.
-     *
-     * @see https://github.com/electron/electron/issues/25012 for the afford mentioned issue.
-     */
   browserWindow.removeMenu()
-  browserWindow.on('ready-to-show', () => {
-    browserWindow?.show()
+  browserWindow.on('close', ev => {
+    if (!quitting) {
+      ev.preventDefault()
+      browserWindow.hide()
+    }
   })
 
   /**
@@ -80,7 +80,11 @@ export async function restoreOrCreateWindow () {
   let window = BrowserWindow.fromId(windowId)
 
   if (window == null) {
-    window = await createWindow()
+    window = await doCreateWindow()
+  }
+
+  if (!window.isVisible()) {
+    window.show()
   }
 
   if (window.isMinimized()) {
@@ -88,4 +92,26 @@ export async function restoreOrCreateWindow () {
   }
 
   window.focus()
+}
+
+export async function createWindow () {
+  let window = BrowserWindow.fromId(windowId)
+
+  if (window == null) {
+    window = await doCreateWindow()
+  }
+}
+
+export async function toggleWindow () {
+  let window = BrowserWindow.fromId(windowId)
+
+  if (window == null) {
+    window = await doCreateWindow()
+  }
+
+  if (!window.isVisible()) {
+    window.show()
+  } else {
+    window.hide()
+  }
 }

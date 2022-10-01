@@ -1,5 +1,5 @@
 import { app, Menu, Tray } from 'electron'
-import { restoreOrCreateWindow } from '@/preferencesWindow'
+import { toggleWindow } from '@/preferencesWindow'
 import { join } from 'path'
 
 let tray = null
@@ -17,7 +17,7 @@ export function createTray () {
     },
     {
       label: 'Preferences',
-      click: restoreOrCreateWindow
+      click: toggleWindow
     },
     { type: 'separator' },
     {
@@ -29,7 +29,7 @@ export function createTray () {
     }
   ])
 
-  tray.addListener('click', restoreOrCreateWindow)
+  tray.addListener('click', toggleWindow)
 
   tray.setToolTip('Rabbit HUD')
   tray.setContextMenu(contextMenu)
