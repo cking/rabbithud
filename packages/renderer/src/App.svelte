@@ -31,7 +31,9 @@
     <link rel="shortcut icon" href="../assets/kurousagi.png" type="image/png">
 </svelte:head>
 
-<Sidebar />
+<aside>
+    <Sidebar />
+</aside>
 
 <main>
     <h1>Hello Electron!</h1>
