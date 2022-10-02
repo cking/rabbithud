@@ -5,6 +5,8 @@
   --color-4: hsl(265 30.7% 49.8%);
   --color-5: hsl(265 30.7% 66.0%);
   --color-6: hsl(265 30.7% 79.0%);
+
+  --color-7: hsl(25 31% 66%);
 }
 
 html {
@@ -21,4 +23,10 @@ html {
 
 a {
   text-decoration: none;
+  color: var(--color-7)
+}
+
+svg {
+  vertical-align: middle;
+  margin-top: -1ch;
 }
