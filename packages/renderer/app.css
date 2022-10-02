@@ -11,9 +11,14 @@ html {
   padding: 1em;
   line-height: 1.75;
   outline: none !important;
-}
-
-body {
+  font-size: 0.9em;
   background-color: var(--color-1);
   color: var(--color-5);
+
+  font-family: Noto Sans, Liberation Sans, Arimo, sans-serif;  
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
 }

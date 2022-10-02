@@ -31,24 +31,24 @@
     </ul>
 </DropdownButton>
 
-<h2 class="text-sm font-bold">Overlays</h2>
-<ul class="text-sm">
+<h2 class="top">Overlays</h2>
+<ul class="options">
     <li>
         <details open>
-            <summary class="italic"
-                ><FolderOpen size="18" class="inline-block" /> Item A</summary
-            >
+            <summary>
+                <FolderOpen size="18" class="inline-block" /> Item A
+            </summary>
 
-            <ul class="ml-4">
+            <ul class="options">
                 <li>
                     <TableCells size="18" class="inline-block" />
                     <a href="#">Item A.A</a>
                 </li>
                 <li>
                     <details>
-                        <summary
-                            ><Folder size="18" class="inline-block" /> Item A.B</summary
-                        >
+                        <summary>
+                            <Folder size="18" class="inline-block" /> Item A.B
+                        </summary>
                     </details>
                 </li>
                 <li>
@@ -67,8 +67,8 @@
         <TableCells size="18" class="inline-block" /> <a href="#">Item C</a>
     </li>
 </ul>
-<h2 class="text-sm font-bold mt-4">Settings</h2>
-<ul class="text-sm">
+<h2>Settings</h2>
+<ul class="options">
     <li><Cog size="18" class="inline-block" /> <a href="#">General</a></li>
     <li><Cog size="18" class="inline-block" /> <a href="#">Cactbot</a></li>
 </ul>
@@ -78,9 +78,28 @@
         content: "";
     }
 
+    details {
+        margin-left: 3ch;
+    }
+
+    summary {
+        margin-left: -3ch;
+        cursor: pointer;
+    }
+
+    ul.options  {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
     ul.menu {
         display: flex;
         flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
 
         background-color: var(--color-4);
         border-radius: 5px;
@@ -101,5 +120,17 @@
 
     .menu li:hover {
         background-color: #0004;
+    }
+
+    details[open] summary {
+        font-style: italic;
+    }
+
+    h2 {
+        margin: 1ch 0 0;
+    }
+
+    h2.top {
+        margin: 0;
     }
 </style>

@@ -1,10 +1,22 @@
 <script>
-    let visible = false
+    let visible = false;
 
     function toggleMenu() {
-        visible = !visible
+        visible = !visible;
     }
 </script>
+
+<div>
+    <button title="Add Overlay" on:click={toggleMenu}>
+        <slot>Button</slot>
+    </button>
+
+    {#if visible}
+        <div class="dropdown">
+            <slot name="menu">no menu sadface</slot>
+        </div>
+    {/if}
+</div>
 
 <style>
     button:hover {
@@ -13,6 +25,7 @@
 
     div {
         position: relative;
+        float: right;
     }
 
     .dropdown {
@@ -21,16 +34,10 @@
         right: -0.5ch;
     }
 
+    button {
+        background: transparent;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+    }
 </style>
-
-<div>
-    <button class="float-right" title="Add Overlay" on:click="{toggleMenu}">
-        <slot>Button</slot>
-    </button>
-
-    {#if visible}
-    <div class="dropdown">
-        <slot name="menu">no menu sadface</slot>
-    </div>
-    {/if}
-</div>
