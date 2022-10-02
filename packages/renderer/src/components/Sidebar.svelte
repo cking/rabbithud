@@ -1,15 +1,77 @@
 <script>
-    import { FolderPlus, PlusCircle, Cog, Folder, FolderOpen, TableCells } from 'svelte-heros-v2'
-    import DropdownButton from './DropdownButton.svelte';
+    import {
+        PlusCircle,
+        Cog,
+        Folder,
+        FolderOpen,
+        TableCells,
+    } from "svelte-heros-v2";
+    import { openModal } from "svelte-modals";
+    import NewGroupDialog from "./NewGroupDialog.svelte";
+    import DropdownButton from "./DropdownButton.svelte";
 
     function onNewOverlay(ev) {
-        console.log(ev)
+        console.log(ev);
     }
 
     function onNewGroup(ev) {
-        console.log(ev)
+        openModal(NewGroupDialog, {
+            title: "Alert",
+            message: "This is an alert",
+        });
     }
 </script>
+
+<DropdownButton>
+    <PlusCircle />
+
+    <ul slot="menu" class="menu">
+        <li on:click={onNewOverlay}>New Overlay</li>
+        <li on:click={onNewGroup}>New Group</li>
+    </ul>
+</DropdownButton>
+
+<h2 class="text-sm font-bold">Overlays</h2>
+<ul class="text-sm">
+    <li>
+        <details open>
+            <summary class="italic"
+                ><FolderOpen size="18" class="inline-block" /> Item A</summary
+            >
+
+            <ul class="ml-4">
+                <li>
+                    <TableCells size="18" class="inline-block" />
+                    <a href="#">Item A.A</a>
+                </li>
+                <li>
+                    <details>
+                        <summary
+                            ><Folder size="18" class="inline-block" /> Item A.B</summary
+                        >
+                    </details>
+                </li>
+                <li>
+                    <TableCells size="18" class="inline-block" />
+                    <a href="#">Item A.C</a>
+                </li>
+            </ul>
+        </details>
+    </li>
+    <li>
+        <details>
+            <summary><Folder size="18" class="inline-block" /> Item B</summary>
+        </details>
+    </li>
+    <li>
+        <TableCells size="18" class="inline-block" /> <a href="#">Item C</a>
+    </li>
+</ul>
+<h2 class="text-sm font-bold mt-4">Settings</h2>
+<ul class="text-sm">
+    <li><Cog size="18" class="inline-block" /> <a href="#">General</a></li>
+    <li><Cog size="18" class="inline-block" /> <a href="#">Cactbot</a></li>
+</ul>
 
 <style>
     summary::marker {
@@ -41,46 +103,3 @@
         background-color: #0004;
     }
 </style>
-
-<DropdownButton>
-    <PlusCircle />
-    
-    <ul slot="menu" class="menu">
-        <li on:click="{onNewOverlay}">New Overlay</li>
-        <li on:click="{onNewGroup}">New Group</li>
-    </ul>
-</DropdownButton>
-
-<h2 class="text-sm font-bold">
-    Overlays
-</h2>
-<ul class="text-sm">
-    <li>
-        <details open>
-            <summary class="italic"><FolderOpen size="18" class="inline-block" /> Item A</summary>
-            
-            <ul class="ml-4">
-                <li><TableCells size="18" class="inline-block" /> <a href="#">Item A.A</a></li>
-                <li>
-                    <details>
-                        <summary><Folder size="18" class="inline-block" /> Item A.B</summary>
-                    </details>
-                </li>
-                <li><TableCells size="18" class="inline-block" /> <a href="#">Item A.C</a></li>
-            </ul>
-        </details>
-    </li>
-    <li>
-        <details>
-            <summary><Folder size="18" class="inline-block" /> Item B</summary>
-        </details>
-    </li>
-    <li><TableCells size="18" class="inline-block" /> <a href="#">Item C</a></li>
-</ul>
-<h2 class="text-sm font-bold mt-4">
-    Settings
-</h2>
-<ul class="text-sm">
-    <li><Cog size="18" class="inline-block" /> <a href="#">General</a></li>
-    <li><Cog size="18" class="inline-block" /> <a href="#">Cactbot</a></li>
-</ul>

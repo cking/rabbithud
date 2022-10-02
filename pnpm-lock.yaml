@@ -15,6 +15,7 @@ specifiers:
   svelte: ^3.50.1
   svelte-heros-v2: ^0.2.4
   svelte-hotkeys: ^0.1.1
+  svelte-modals: ^1.2.0
   svelte-preprocess: ^4.10.7
   svelte-spa-router: ^3.3.0
   tailwindcss: ^3.1.5
@@ -36,6 +37,7 @@ devDependencies:
   svelte: 3.50.1
   svelte-heros-v2: 0.2.4
   svelte-hotkeys: 0.1.1_hotkeys-js@3.10.0
+  svelte-modals: 1.2.0
   svelte-preprocess: 4.10.7_zy537mcxrfn3wq4nghluxnsi5a
   svelte-spa-router: 3.3.0
   tailwindcss: 3.1.8_postcss@8.4.16
@@ -3617,6 +3619,10 @@ packages:
       hotkeys-js: ^3.8.7
     dependencies:
       hotkeys-js: 3.10.0
+    dev: true
+
+  /svelte-modals/1.2.0:
+    resolution: {integrity: sha512-t2aRTu42olRtXsiIvL/RXImy0BiaSWqKCGXIkN9RL7shzvkPXC4rxfbvi1Y3qS/4XeJ6Av1lLxQty/pxNGXg4A==}
     dev: true
 
   /svelte-preprocess/4.10.7_zy537mcxrfn3wq4nghluxnsi5a:
