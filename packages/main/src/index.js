@@ -2,6 +2,7 @@ import { app } from 'electron'
 import './security'
 import { createTray } from './tray'
 import { restoreOrCreateWindow, createWindow } from '@/preferencesWindow'
+import { installFilewatcher } from './settingsFileWatcher'
 
 /**
  * Prevent electron from running multiple instances.
@@ -26,6 +27,7 @@ app
   .whenReady()
   .then(createTray)
   .then(createWindow)
+  .then(installFilewatcher)
   .catch(e => console.error('Failed create window:', e))
 
 /**
