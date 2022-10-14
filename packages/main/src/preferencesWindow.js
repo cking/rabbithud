@@ -21,7 +21,7 @@ async function doCreateWindow () {
   const browserWindow = new BrowserWindow({
     minWidth: 1280,
     minHeight: 550,
-    width: 1280,
+    width: 1080,
     height: 550,
     maxWidth: 1280,
     maxHeight: 550,
