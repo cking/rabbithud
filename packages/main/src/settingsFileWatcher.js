@@ -5,6 +5,22 @@ import { join } from 'path'
 const xdgVarName = 'XDG_CONFIG_HOME'
 const configFileName = 'rabbithud.json'
 
+function normalizeConfig (json) {
+  return Object.assign({
+    settings: {
+      ip: '127.0.0.1',
+      port: 10501,
+      enableSecureProxy: false,
+
+      enableCactbot: true,
+
+      showOverlaysOnStartup: false,
+      toggleOverlayHotkey: 'Ctrl+Shift+X'
+    },
+    overlays: []
+  }, json)
+}
+
 function resolveConfigFile () {
   let path = process.env[xdgVarName]
 
@@ -30,13 +46,13 @@ function handleFileChange (_type, filename) {
 function readConfig () {
   const f = join(resolveConfigFile(), configFileName)
   if (!existsSync(f)) {
-    return {}
+    return normalizeConfig({})
   }
 
   const rawJson = readFileSync(f)
   const json = JSON.parse(rawJson)
 
-  return json
+  return normalizeConfig(json)
 }
 
 ipcMain.on('update-config', (_, data) => {
