@@ -74,8 +74,9 @@ The current selection of overlay managers for Linux are mediocre at best.
 
 ### Built With
 
-* [![Next](https://img.shields.io/badge/Electron-000000?style=for-the-badge&logo=electron&logoColor=teal)](https://electronjs.org)
-* [![Vite](https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite&logoColor=magenta)](https://vitejs.dev/)
+[![Electron](https://img.shields.io/badge/Electron-000000?style=for-the-badge&logo=electron)](https://electronjs.org)
+[![Vite](https://img.shields.io/badge/Vite-000000?style=for-the-badge&logo=vite)](https://vitejs.dev/)
+[![Svelte](https://img.shields.io/badge/Svelte-000000?style=for-the-badge&logo=svelte)](https://vitejs.dev/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -146,7 +147,7 @@ Distributed under the EUPL License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Kura Bloodlust 
+Kura Bloodlust
   - Fediverse: [@kura@z0ne.social](https://z0ne.social/@kura)
   - Semi Official Discord: [IINACT #help-linux](https://discord.gg/w98nXYE39V)
 
