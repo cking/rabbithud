@@ -8,7 +8,7 @@ class OverlayURL {
 
   compute () {
     // TODO: proxy instead of original
-    const url = new URL(path)
+    const url = new URL(this.path)
 
     // TODO: wss wrapper
     // TODO: get ip and port from global config object
