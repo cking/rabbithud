@@ -1,5 +1,17 @@
+import { get } from 'svelte/store'
+import { config as configStore, presets as presetStore } from '../stores'
+
 export class OverlayURL {
-  // TODO: provide a way to generate url from JSON instead directly providing this sht
+  static async fromPreset (presetName, enableProxy = false) {
+    const presets = await get(presetStore)
+
+    const preset = presets[presetName]
+
+    return new OverlayURL(enableProxy
+      ? preset.http_proxy
+      : preset.url, preset.modern, preset.options)
+  }
+
   constructor (path, modern = false, options = '') {
     this.path = path
     this.modern = !!modern
@@ -7,14 +19,13 @@ export class OverlayURL {
   }
 
   compute () {
-    // TODO: proxy instead of original
     const url = new URL(this.path)
+    const config = get(configStore)
 
     // TODO: wss wrapper
-    // TODO: get ip and port from global config object
     url.search = (this.modern
-      ? '?OVERLAY_WS=ws://' + ipAddress + ':' + port + '/ws'
-      : '?HOST_PORT=ws://' + ipAddress + ':' + port) +
+      ? `?OVERLAY_WS=ws://${config.settings.ip}:${config.settings.port}/ws`
+      : `?HOST_PORT=ws://${config.settings.ip}:${config.settings.port}`) +
       this.options
 
     return url

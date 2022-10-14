@@ -26,6 +26,7 @@
     "hotkeys-js": "^3.10.0",
     "standard": "^17.0.0",
     "svelte": "^3.50.1",
+    "svelte-asyncable": "^2.1.0",
     "svelte-heros-v2": "^0.2.4",
     "svelte-hotkeys": "^0.1.1",
     "svelte-modals": "^1.2.0",
