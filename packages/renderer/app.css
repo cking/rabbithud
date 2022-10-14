@@ -23,6 +23,10 @@ html {
   user-select: none;
 }
 
+body {
+  height: 100%;
+}
+
 a {
   text-decoration: none;
   color: var(--color-7)
