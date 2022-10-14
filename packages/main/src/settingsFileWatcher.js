@@ -1,5 +1,5 @@
 import { BrowserWindow, ipcMain } from 'electron'
-import { watch, writeFileSync, readFileSync } from 'fs'
+import { watch, writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 
 const xdgVarName = 'XDG_CONFIG_HOME'
@@ -28,7 +28,12 @@ function handleFileChange (_type, filename) {
 }
 
 function readConfig () {
-  const rawJson = readFileSync(join(resolveConfigFile(), configFileName))
+  const f = join(resolveConfigFile(), configFileName)
+  if (!existsSync(f)) {
+    return {}
+  }
+
+  const rawJson = readFileSync(f)
   const json = JSON.parse(rawJson)
 
   return json
