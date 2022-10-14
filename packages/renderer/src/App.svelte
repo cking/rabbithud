@@ -6,6 +6,8 @@
 
     import Sidebar from "./components/Sidebar.svelte";
 
+    import icon from "@/img/kurousagi.png"
+
     function toggleDevTools(ev) {
         window.rabbit.devtools();
     }
@@ -16,7 +18,7 @@
 />
 <svelte:head>
     <title>Rabbit HUD</title>
-    <link rel="shortcut icon" href="../assets/kurousagi.png" type="image/png" />
+    <link rel="shortcut icon" href={icon} type="image/png" />
 </svelte:head>
 
 <aside>
