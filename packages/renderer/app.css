@@ -17,7 +17,9 @@ html {
   background-color: var(--color-1);
   color: var(--color-5);
 
-  font-family: Noto Sans, Liberation Sans, Arimo, sans-serif;  
+  height: calc(100vh - 3em);
+
+  font-family: Noto Sans, Liberation Sans, Arimo, sans-serif;
   user-select: none;
 }
 
