@@ -1,4 +1,4 @@
-class OverlayURL {
+export class OverlayURL {
   // TODO: provide a way to generate url from JSON instead directly providing this sht
   constructor (path, modern = false, options = '') {
     this.path = path
