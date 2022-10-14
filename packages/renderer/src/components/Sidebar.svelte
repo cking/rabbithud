@@ -69,8 +69,8 @@
 </ul>
 <h2>Settings</h2>
 <ul class="options">
-    <li><Cog size="18" class="inline-block" /> <a href="#">General</a></li>
-    <li><Cog size="18" class="inline-block" /> <a href="#">Cactbot</a></li>
+    <li><Cog size="18" class="inline-block" /> <a href="#/settings/general">General</a></li>
+    <li><Cog size="18" class="inline-block" /> <a href="#/settings/cactbot">Cactbot</a></li>
 </ul>
 
 <style>
