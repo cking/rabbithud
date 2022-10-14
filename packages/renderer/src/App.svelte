@@ -1,7 +1,8 @@
 <script>
     import { hotkeys } from "svelte-hotkeys";
-    import Counter from "./components/Counter.svelte";
+    import { routes } from "./routes"
     import { Modals, closeModal } from "svelte-modals";
+    import Router from 'svelte-spa-router'
 
     import Sidebar from "./components/Sidebar.svelte";
 
@@ -23,19 +24,7 @@
 </aside>
 
 <main>
-    <h1>Hello Electron!</h1>
-
-    <Counter />
-
-    <p>
-        Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-        apps.
-    </p>
-
-    <p>
-        Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a>
-        for the officially supported framework, also powered by Vite!
-    </p>
+    <Router {routes}/>
 </main>
 
 <Modals>
