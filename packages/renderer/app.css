@@ -21,6 +21,11 @@ html {
 
   font-family: Noto Sans, Liberation Sans, Arimo, sans-serif;
   user-select: none;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -35,4 +40,41 @@ a {
 svg {
   vertical-align: middle;
   margin-top: -1ch;
+}
+
+
+fieldset {
+    border: none;
+    background-color: var(--color-2);
+    padding-left: 2ch;
+    padding-right: 2ch;
+}
+
+legend {
+    font-weight: bold;
+}
+
+div.form-row {
+    margin-bottom: 1ch;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.form-row:last-child {
+    margin-bottom: 0;
+}
+
+div.form-row label {
+    display: block;
+    flex: 0 100%;
+}
+
+div.form-row input {
+    flex: 1;
+}
+
+div.form-row button {
+    flex: 0;
+    white-space: nowrap;
 }
