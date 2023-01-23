@@ -30,7 +30,7 @@
     "svelte-heros-v2": "^0.2.4",
     "svelte-hotkeys": "^0.1.1",
     "svelte-modals": "^1.2.0",
-    "svelte-preprocess": "^4.10.7",
+    "svelte-preprocess": "^5.0.1",
     "svelte-spa-router": "^3.3.0",
     "unplugin-auto-expose": "^0.0.3",
     "vite": "^3.1.3"
