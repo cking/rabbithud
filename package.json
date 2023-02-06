@@ -21,7 +21,7 @@
     "@sveltejs/vite-plugin-svelte": "^1.0.8",
     "classnames": "^2.3.2",
     "cross-env": "^7.0.3",
-    "electron": "^21.0.1",
+    "electron": "^22.2.0",
     "electron-builder": "^23.3.3",
     "hotkeys-js": "^3.10.0",
     "standard": "^17.0.0",
